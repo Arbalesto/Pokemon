@@ -10,6 +10,12 @@ namespace Pokemon
     {
         static void Main(string[] args)
         {
+            Pokemon Pikachu = new Pokemon("Pikachu", 100, 20, 50, 100);
+            Pikachu.showInfo();
+
+            Pokemon Charizard = new Pokemon("Charizard", 100, 20, 70, 50);
+            Charizard.showInfo();
+            Console.ReadKey();
         }
     }
 }
