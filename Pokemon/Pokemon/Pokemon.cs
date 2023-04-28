@@ -15,7 +15,9 @@ namespace Pokemon
         public double attack;
         public double defense;
         public double speed;
+        public double damage;
         Type type;
+        
 
         public Pokemon(string name, double hp, double attack, double defense, double speed)
         {
@@ -38,8 +40,15 @@ namespace Pokemon
 
         }
         
+        public static double Dmg(Pokemon You, Pokemon Enemy)
+        {
+            return (((((2 * 100 * 1) / 5 + 2) * 100 * You.attack / Enemy.defense) / 50));
+        }
+        public static void TEST()
+        {
+            this.Move.jaja();
+        }
         
-
     }
     enum Type
     {

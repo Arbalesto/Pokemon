@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace Pokemon
 {
-    internal class Move
+    public class Move
     {
     }
-}
+    public class AttackMove : Move
+    {
+       
+        public static void jaja()
+        {
+            Console.WriteLine("BLABLALBLAB");
+        }
+    }
+    }
+

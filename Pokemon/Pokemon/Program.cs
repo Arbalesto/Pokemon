@@ -16,9 +16,12 @@ namespace Pokemon
             Pokemon Charizard = new Pokemon("Charizard", 100, 20, 70, 50);
             Charizard.showInfo();
 
-            Pokemon.Test(Pikachu,Charizard);
-            Pikachu.showInfo();
+ 
+            Pikachu.damage = Pokemon.Dmg(Pikachu, Charizard);
+            Console.WriteLine("Pikachu basic dmg against Charizard - {0} ",Pikachu.damage);
             Console.ReadKey();
+
+           
         }
     }
 }
