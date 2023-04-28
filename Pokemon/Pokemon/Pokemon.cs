@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,7 @@ namespace Pokemon
             this.speed = speed;
 
         }        
+        
         public void showInfo()
         {
             Console.WriteLine("--- Information ---");
@@ -35,10 +37,8 @@ namespace Pokemon
             Console.WriteLine("Speed - {0}", speed + "\n");
 
         }
-        public static void Test(Pokemon p, Pokemon d) {
-            Console.WriteLine("Atakujesz");
-            p.healthPoints -= d.attack;
-        }
+        
+        
 
     }
     enum Type

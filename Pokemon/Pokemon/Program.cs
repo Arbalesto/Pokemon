@@ -15,6 +15,9 @@ namespace Pokemon
 
             Pokemon Charizard = new Pokemon("Charizard", 100, 20, 70, 50);
             Charizard.showInfo();
+
+            Pokemon.Test(Pikachu,Charizard);
+            Pikachu.showInfo();
             Console.ReadKey();
         }
     }
