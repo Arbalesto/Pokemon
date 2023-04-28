@@ -10,18 +10,35 @@ namespace Pokemon
     {
         static void Main(string[] args)
         {
-            Pokemon Pikachu = new Pokemon("Pikachu", 100, 20, 50, 100);
+            //Dictionary<Type, (List<Type>, List<Type>)> typesMap = new Dictionary<Type, (List<Type>, List<Type>)>();
+            //typesMap.Add(Type.Fire);
+            Move move = new AttackMove();   
+            Item item = new HealingItem();
+            
+            Pokemon Pikachu = new Pokemon("Pikachu", 100, 20, 50, 100, move,item);
+            
+          
+
+            Pokemon Charizard = new Pokemon("Charizard", 100, 20, 70, 50, move, item);
+           
+
+            Pikachu.makeMove(Charizard);
+            Charizard.makeMove(Pikachu);
+            
+            Charizard.showInfo();
             Pikachu.showInfo();
 
-            Pokemon Charizard = new Pokemon("Charizard", 100, 20, 70, 50);
             Charizard.showInfo();
 
- 
-            Pikachu.damage = Pokemon.Dmg(Pikachu, Charizard);
-            Console.WriteLine("Pikachu basic dmg against Charizard - {0} ",Pikachu.damage);
+            Pikachu.Leczenie(Pikachu);
+            Charizard.Leczenie(Charizard);
+
+            Console.WriteLine();
+
             Console.ReadKey();
 
            
+
         }
     }
 }

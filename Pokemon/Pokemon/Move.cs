@@ -6,16 +6,30 @@ using System.Threading.Tasks;
 
 namespace Pokemon
 {
-    public class Move
+    public abstract class Move
     {
+        public abstract void execute(Pokemon source, Pokemon target);
+
+       
+
     }
     public class AttackMove : Move
     {
-       
-        public static void jaja()
+        protected double calculateDmg(Pokemon You, Pokemon Enemy)
         {
-            Console.WriteLine("BLABLALBLAB");
+            return (((((2 * 100 * 1) / 5 + 2) * 100 * You.attack / Enemy.defense) / 50));
+        }
+        public  override void execute(Pokemon source, Pokemon target)
+        {
+            double dmg = this.calculateDmg(source, target);
+            target.healthPoints -= dmg;
+            
+        }
+        public void specjalnyAtak(Pokemon source, Pokemon target)
+        {
+            
         }
     }
-    }
+
+}
 

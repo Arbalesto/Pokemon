@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Pokemon
 {
+    
     public class Pokemon
     {
         public string name;
@@ -16,19 +17,25 @@ namespace Pokemon
         public double defense;
         public double speed;
         public double damage;
-        Type type;
+        public Move move;
+        public Item item;
         
+        Type type;
 
-        public Pokemon(string name, double hp, double attack, double defense, double speed)
+
+        public Pokemon(string name, double hp, double attack, double defense, double speed, Move move, Item item)
         {
             this.name = name;
             this.healthPoints = hp;
             this.attack = attack;
             this.defense = defense;
             this.speed = speed;
+            this.move = move;
+            this.item = item;
+            
 
-        }        
-        
+        }
+
         public void showInfo()
         {
             Console.WriteLine("--- Information ---");
@@ -39,21 +46,17 @@ namespace Pokemon
             Console.WriteLine("Speed - {0}", speed + "\n");
 
         }
-        
-        public static double Dmg(Pokemon You, Pokemon Enemy)
+
+
+        public void makeMove(Pokemon target)
         {
-            return (((((2 * 100 * 1) / 5 + 2) * 100 * You.attack / Enemy.defense) / 50));
+            if (target == null) return;
+            this.move.execute(this, target);
         }
-        public static void TEST()
+
+        public void Leczenie(Pokemon pokemon)
         {
-            this.Move.jaja();
+            this.item.Leczenie(pokemon);
         }
-        
-    }
-    enum Type
-    {
-        Fire,
-        Water,
-        Grass,
     }
 }
