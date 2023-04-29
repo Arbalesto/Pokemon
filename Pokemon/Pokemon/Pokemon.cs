@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using static System.Collections.Specialized.BitVector32;
 
 namespace Pokemon
 {
-    
+
     public class Pokemon
     {
         public string name;
@@ -23,9 +26,10 @@ namespace Pokemon
         public Move move;
         public Item item;
         public SpecialAttackMove specialmove;
-        
-       
-        
+        public BuffingItem buff;
+
+
+
 
         Type type;
         public double specialatak_
@@ -44,7 +48,7 @@ namespace Pokemon
             }
         }
 
-        public Pokemon(string name, double hp, double attack, double defense, double speed, Move move, Item item,double specialatak_, SpecialAttackMove specialmove)
+        public Pokemon(string name, double hp, double attack, double defense, double speed, Move move, Item item, double specialatak_, SpecialAttackMove specialmove, BuffingItem buff)
         {
             this.name = name;
             this.healthPoints = hp;
@@ -55,11 +59,12 @@ namespace Pokemon
             this.item = item;
             this.specialatak_ = specialatak_;
             this.specialmove = specialmove;
-            
-            
+            this.buff = buff;
+
+
         }
 
-        
+
         public void showInfo()
         {
             Console.WriteLine("--- Information ---");
@@ -68,26 +73,103 @@ namespace Pokemon
             Console.WriteLine("Attack - {0}", attack);
             Console.WriteLine("Defense - {0}", defense);
             Console.WriteLine("Speed - {0}", speed + "\n");
-
+            Console.WriteLine("------------------------------------------"+"\n");
         }
 
 
         public void makeMove(Pokemon target)
         {
             if (target == null) return;
-            this.move.execute(this, target);
-            Console.WriteLine("ATAK" + "\n");
+            move.execute(this, target);
+            target.showInfo();
         }
 
         public void Leczenie(Pokemon pokemon)
         {
-            this.item.Leczenie(pokemon);
+            item.Leczenie(pokemon);
+            pokemon.showInfo();
         }
         public void makeSpecialMove(Pokemon target)
         {
             if (target == null) return;
-            this.specialmove.Specialexecute(this, target);
+            specialmove.Specialexecute(this, target);
+            target.showInfo();
 
         }
+        public void buffingMove(Pokemon target)
+        {
+            buff.Buff(target);
+            Console.WriteLine("{0} Uzyll itemu buffujacego! Obecne Staty -", target.name);
+            target.showInfo();
+        }
+        public bool isTurn(Pokemon A, Pokemon B)
+        {
+            if (A.speed > B.speed) return true;
+            else return false;
+        }
+        public void YourAction(Pokemon A, Pokemon B)
+        {
+            Console.WriteLine("Choose your action 1-Attack | 2-Special Atack | 3 - Heal | 4- Buff | 5-Run Away");
+            int choice = int.Parse(Console.ReadLine());
+
+            
+            switch (choice)
+            {
+                case 1:
+                    A.makeMove(B);
+                    break;
+                case 2:
+                    A.makeSpecialMove(B);
+                    break;
+                case 3:
+                    A.Leczenie(A);
+                    break;
+                case 4:
+                    A.buffingMove(A);
+                    break;
+                case 5:
+                    break;
+                default:
+                    Console.WriteLine("Invalid choice ");
+                    break;
+            }
+        }
+        public void EnemyAction(Pokemon B, Pokemon A)
+        {
+            Random random = new Random();
+            int enemychoice = random.Next(1, 5);
+
+            switch (enemychoice)
+            {
+                case 1:
+                    B.makeMove(A);
+                    break;
+                case 2:
+                    B.makeSpecialMove(A);
+                    break;
+                case 3:
+                    B.Leczenie(B);
+                    break;
+                case 4:
+                    B.buffingMove(B);
+                    break;
+                case 5:
+                    break;
+                default:
+                    Console.WriteLine("Invalid choice ");
+                    break;
+            }
+        }
+        public bool isRunning(Pokemon A, Pokemon B)
+        {
+
+            if (A.healthPoints > 0 && B.healthPoints > 0)
+            {
+                return true;
+            }
+            else return false;
+        }
+       
     }
 }
+

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,19 +16,31 @@ namespace Pokemon
             Move move = new AttackMove();
             Item Healingitem = new HealingItem();
             SpecialAttackMove specialmove = new SpecialAttackMove();
+            BuffingItem buffingItem = new BuffingItem();
 
-
-            Pokemon Pikachu = new Pokemon("Pikachu", 100, 20, 50, 100, move,Healingitem, 29, specialmove);
+            Pokemon Pikachu = new Pokemon("Pikachu", 100, 20, 50, 100, move,Healingitem, 25, specialmove, buffingItem);
         
-            Pokemon Charizard = new Pokemon("Charizard", 100, 20, 70, 50, move, Healingitem, 28, specialmove);
+            Pokemon Charizard = new Pokemon("Charizard", 100, 20, 70, 50, move, Healingitem, 25, specialmove, buffingItem);
 
-            Charizard.makeSpecialMove(Pikachu);
-            Pikachu.showInfo();
-           
-           
 
+
+            while (Pikachu.isRunning(Pikachu, Charizard))
+            {
+                if (Pikachu.isTurn(Pikachu, Charizard))
+                {
+                    Pikachu.YourAction(Pikachu, Charizard);
+
+                    Charizard.EnemyAction(Charizard, Pikachu);
+                }
+                else
+                {
+                    Charizard.EnemyAction(Charizard,Pikachu);
+                    Pikachu.YourAction(Pikachu, Charizard);
+                }
+                
+            }
             Console.ReadKey();
-
         }
     }
+
 }

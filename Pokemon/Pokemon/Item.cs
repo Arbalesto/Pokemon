@@ -19,14 +19,15 @@ namespace Pokemon
 
         public override void Leczenie(Pokemon pokemon)
         {
-            pokemon.healthPoints += 11;
-            Console.WriteLine("{0} Użył Apteczki, Hp {1} wynosi - {2}", pokemon.name, pokemon.name, pokemon.healthPoints);
+            pokemon.healthPoints += 30;
+            Console.WriteLine("{0} Użył Apteczki!", pokemon.name);
         }
     }
     public class BuffingItem: Item
     {
         public void Buff(Pokemon Me)
         {
+            
             Me.attack += 5;
             Me.specialAtak += 5;
             Me.damage += 5;
