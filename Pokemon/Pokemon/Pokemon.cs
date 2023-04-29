@@ -80,7 +80,7 @@ namespace Pokemon
             Console.WriteLine("Attack - {0}", attack);
             Console.WriteLine("Defense - {0}", defense);
             Console.WriteLine("Speed - {0}", speed + "\n");
-            Console.WriteLine("------------------------------------------"+"\n");
+            Console.WriteLine("--------------------------"+"\n");
         }
 
         public void makeSpecialMoveforBot(Pokemon target)
@@ -120,7 +120,7 @@ namespace Pokemon
         public void YourAction(Pokemon A, Pokemon B)
             
         {
-            Console.Write("Choose your action 1-Attack | 2-Special Atack | 3 - Heal | 4- Buff: ");
+            Console.Write("Choose your action \n 1-Attack \n 2-Special Atack \n 3-Heal \n 4-Buff: ");
             int choice = int.Parse(Console.ReadLine());
 
             

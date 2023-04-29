@@ -15,12 +15,12 @@ namespace Pokemon
     }
     public class HealingItem : Item
     {
-        public string name = "Apteczka";
+       
 
         public override void Leczenie(Pokemon pokemon)
         {
             pokemon.healthPoints += 30;
-            Console.WriteLine("{0} Użył Apteczki!", pokemon.name);
+            Console.WriteLine("\n" + "{0} Used Healing" + "\n", pokemon.name);
         }
     }
     public class BuffingItem: Item
