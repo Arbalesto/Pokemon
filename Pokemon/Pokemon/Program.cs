@@ -18,28 +18,30 @@ namespace Pokemon
             SpecialAttackMove specialmove = new SpecialAttackMove();
             BuffingItem buffingItem = new BuffingItem();
 
-            Pokemon Pikachu = new Pokemon("Pikachu", 100, 20, 50, 2, move,Healingitem, 25, specialmove, buffingItem);
-        
-            Pokemon Charizard = new Pokemon("Charizard", 100, 20, 70, 1, move, Healingitem, 25, specialmove, buffingItem);
+            Pokemon Pikachu = new Pokemon("Pikachu", 100, 10, 50, 2, move,Healingitem, 25, specialmove, buffingItem ,"Splash", "Scraw", "Bomb");
+            Pokemon Charizard = new Pokemon("Charizard", 100, 10, 70, 1, move, Healingitem, 25, specialmove, buffingItem, "Splash", "Scraw", "Bomb");
 
 
+            Pikachu.makeSpecialMove(Charizard);
 
-            while (Pikachu.isRunning(Pikachu, Charizard))
-            {
-                if (Pikachu.isTurn(Pikachu, Charizard))
-                {
-                    Pikachu.YourAction(Pikachu, Charizard);
-                    Charizard.EnemyAction(Charizard, Pikachu);
-                }
-                else
-                {
-                    Charizard.EnemyAction(Charizard,Pikachu);
-                    Pikachu.YourAction(Pikachu, Charizard);
-                }
-                
-            }
+            //while (Pikachu.isRunning(Pikachu, Charizard))
+
+            //{
+            //    if (Pikachu.isTurn(Pikachu, Charizard))
+            //    {
+            //        Pikachu.YourAction(Pikachu, Charizard);
+            //        Charizard.EnemyAction(Charizard, Pikachu);
+            //    }
+            //    else
+            //    {
+            //        Charizard.EnemyAction(Charizard,Pikachu);
+            //        Pikachu.YourAction(Pikachu, Charizard);
+            //    }
+
             Console.ReadKey();
+            }
+            //Console.ReadKey();
         }
     }
 
-}
+

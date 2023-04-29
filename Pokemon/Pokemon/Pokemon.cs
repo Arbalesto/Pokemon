@@ -22,6 +22,10 @@ namespace Pokemon
         public double speed;
         public double damage;
         public double specialAtak;
+        
+        public string Atak1 {get;set;}
+        public string Atak2 { get;set;}
+        public string Atak3 { get;set;}
 
         public Move move;
         public Item item;
@@ -48,7 +52,8 @@ namespace Pokemon
             }
         }
 
-        public Pokemon(string name, double hp, double attack, double defense, double speed, Move move, Item item, double specialatak_, SpecialAttackMove specialmove, BuffingItem buff)
+        public Pokemon(string name, double hp, double attack, double defense, double speed,
+            Move move, Item item, double specialatak_, SpecialAttackMove specialmove, BuffingItem buff, string atak1, string atak2, string atak3)
         {
             this.name = name;
             this.healthPoints = hp;
@@ -60,7 +65,9 @@ namespace Pokemon
             this.specialatak_ = specialatak_;
             this.specialmove = specialmove;
             this.buff = buff;
-
+            this.Atak1 = atak1;
+            this.Atak2 = atak2;
+            this.Atak3 = atak3;
 
         }
 
@@ -108,8 +115,9 @@ namespace Pokemon
             else return false;
         }
         public void YourAction(Pokemon A, Pokemon B)
+            
         {
-            Console.Write("Choose your action 1-Attack | 2-Special Atack | 3 - Heal | 4- Buff | 5-Run Away: "+"\n");
+            Console.Write("Choose your action 1-Attack | 2-Special Atack | 3 - Heal | 4- Buff: ");
             int choice = int.Parse(Console.ReadLine());
 
             
@@ -126,9 +134,7 @@ namespace Pokemon
                     break;
                 case 4:
                     A.buffingMove(A);
-                    break;
-                case 5:
-                    break;
+                    break;        
                 default:
                     Console.WriteLine("Invalid choice ");
                     break;

@@ -39,6 +39,17 @@ namespace Pokemon
         }
         public void Specialexecute(Pokemon source, Pokemon target)
         {
+            Console.WriteLine("Choose your Special Atack! 1-{0}, 2-{1}, 3-{2}", source.Atak1, source.Atak2, source.Atak3);
+            int wybor = int.Parse(Console.ReadLine());
+            switch (wybor) {
+                case 1:
+                 Console.WriteLine("{0} uses {1}", source.name, source.Atak1);
+                    break;
+                case 2: Console.WriteLine("{0} uses {1}", source.name, source.Atak2); 
+                    break; 
+                case 3: Console.WriteLine("{0} uses {1}", source.name, source.Atak3);
+                    break;
+            }
             double dmg = this.SpecialcalculateDmg(source, target);
             target.healthPoints -= dmg;
 
