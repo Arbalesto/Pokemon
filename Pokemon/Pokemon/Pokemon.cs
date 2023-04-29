@@ -83,11 +83,15 @@ namespace Pokemon
             Console.WriteLine("------------------------------------------"+"\n");
         }
 
+        public void makeSpecialMoveforBot(Pokemon target)
+        {
 
+            specialmove.SpecialexecuteFORENEMY(this, target);
+            target.showInfo();
+        }
         public void makeMove(Pokemon target)
         {
             move.execute(this, target);
-            Console.WriteLine("Zwykly Atak" +"\n");
             target.showInfo();
         }
 
@@ -98,7 +102,6 @@ namespace Pokemon
         }
         public void makeSpecialMove(Pokemon target)
         {
-            Console.WriteLine("Specjalny atak" +"\n");
             specialmove.Specialexecute(this, target);
             target.showInfo();
 
@@ -106,7 +109,7 @@ namespace Pokemon
         public void buffingMove(Pokemon target)
         {
             buff.Buff(target);
-            Console.WriteLine("{0} Uzyll itemu buffujacego! Obecne Staty: "+"\n", target.name );
+            Console.WriteLine("{0} Uses buff item! Current Stats: "+"\n", target.name );
             target.showInfo();
         }
         public bool isTurn(Pokemon A, Pokemon B)
@@ -151,7 +154,7 @@ namespace Pokemon
                         B.makeMove(A);
                         break;
                     case 2:
-                        B.makeSpecialMove(A);
+                        B.makeSpecialMoveforBot(A);
                         break;
                     case 3:
                         B.Leczenie(B);
