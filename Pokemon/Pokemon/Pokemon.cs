@@ -138,26 +138,27 @@ namespace Pokemon
         {
             Random random = new Random();
             int enemychoice = random.Next(1, 5);
-
-            switch (enemychoice)
-            {
-                case 1:
-                    B.makeMove(A);
-                    break;
-                case 2:
-                    B.makeSpecialMove(A);
-                    break;
-                case 3:
-                    B.Leczenie(B);
-                    break;
-                case 4:
-                    B.buffingMove(B);
-                    break;
-                case 5:
-                    break;
-                default:
-                    Console.WriteLine("Invalid choice ");
-                    break;
+            if (B.healthPoints > 0){
+                switch (enemychoice)
+                {
+                    case 1:
+                        B.makeMove(A);
+                        break;
+                    case 2:
+                        B.makeSpecialMove(A);
+                        break;
+                    case 3:
+                        B.Leczenie(B);
+                        break;
+                    case 4:
+                        B.buffingMove(B);
+                        break;
+                    case 5:
+                        break;
+                    default:
+                        Console.WriteLine("Invalid choice ");
+                        break;
+                }
             }
         }
         public bool isRunning(Pokemon A, Pokemon B)
