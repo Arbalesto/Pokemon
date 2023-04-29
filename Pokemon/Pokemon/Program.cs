@@ -16,11 +16,15 @@ namespace Pokemon
             Item Healingitem = new HealingItem();
             SpecialAttackMove specialmove = new SpecialAttackMove();
 
-            Pokemon Pikachu = new Pokemon("Pikachu", 100, 20, 50, 100, move,Healingitem, -5, specialmove);
-            Pokemon Charizard = new Pokemon("Charizard", 100, 20, 70, 50, move, Healingitem, 54, specialmove);
 
-           
+            Pokemon Pikachu = new Pokemon("Pikachu", 100, 20, 50, 100, move,Healingitem, 29, specialmove);
+        
+            Pokemon Charizard = new Pokemon("Charizard", 100, 20, 70, 50, move, Healingitem, 28, specialmove);
+
+            Charizard.makeSpecialMove(Pikachu);
             Pikachu.showInfo();
+           
+           
 
             Console.ReadKey();
 

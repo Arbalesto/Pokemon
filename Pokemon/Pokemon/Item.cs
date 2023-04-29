@@ -25,6 +25,13 @@ namespace Pokemon
     }
     public class BuffingItem: Item
     {
-
+        public void Buff(Pokemon Me)
+        {
+            Me.attack += 5;
+            Me.specialAtak += 5;
+            Me.damage += 5;
+            Me.speed += 5;
+            Me.defense += 5;
+        }
     }
 }

@@ -35,7 +35,7 @@ namespace Pokemon
         }
         protected double SpecialcalculateDmg(Pokemon You, Pokemon Enemy)
         {
-            return (((((2 * 100 * 1) / 5 + 2) * 100 * You.attack / Enemy.defense) / 50)+ You.specialatack_/5);
+            return (((((2 * 100 * 1) / 5 + 2) * 100 * You.attack / Enemy.defense) / 50)+ You.specialAtak/5);
         }
         public void Specialexecute(Pokemon source, Pokemon target)
         {

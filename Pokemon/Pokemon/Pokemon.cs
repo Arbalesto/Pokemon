@@ -18,7 +18,8 @@ namespace Pokemon
         public double defense;
         public double speed;
         public double damage;
-        public double specialatack_;
+        public double specialAtak;
+
         public Move move;
         public Item item;
         public SpecialAttackMove specialmove;
@@ -27,23 +28,23 @@ namespace Pokemon
         
 
         Type type;
-        public double specialatak
+        public double specialatak_
         {
             set
             {
-                if (value > 25 && value < 0)
+                if (value > 30 || value < 0)
                 {
                     throw new Exception("Value is either too low or too high!");
                 }
-                this.specialatack_ = value;
+                this.specialAtak = value;
             }
             get
             {
-                return this.specialatack_;
+                return this.specialAtak;
             }
         }
 
-        public Pokemon(string name, double hp, double attack, double defense, double speed, Move move, Item item,double specialatac_, SpecialAttackMove specialmove)
+        public Pokemon(string name, double hp, double attack, double defense, double speed, Move move, Item item,double specialatak_, SpecialAttackMove specialmove)
         {
             this.name = name;
             this.healthPoints = hp;
@@ -52,7 +53,7 @@ namespace Pokemon
             this.speed = speed;
             this.move = move;
             this.item = item;
-            this.specialatack_ = specialatac_;
+            this.specialatak_ = specialatak_;
             this.specialmove = specialmove;
             
             
