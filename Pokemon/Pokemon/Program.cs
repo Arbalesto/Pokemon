@@ -12,32 +12,17 @@ namespace Pokemon
         {
             //Dictionary<Type, (List<Type>, List<Type>)> typesMap = new Dictionary<Type, (List<Type>, List<Type>)>();
             //typesMap.Add(Type.Fire);
-            Move move = new AttackMove();   
-            Item item = new HealingItem();
-            
-            Pokemon Pikachu = new Pokemon("Pikachu", 100, 20, 50, 100, move,item);
-            
-          
+            Move move = new AttackMove();
+            Item Healingitem = new HealingItem();
+            SpecialAttackMove specialmove = new SpecialAttackMove();
 
-            Pokemon Charizard = new Pokemon("Charizard", 100, 20, 70, 50, move, item);
+            Pokemon Pikachu = new Pokemon("Pikachu", 100, 20, 50, 100, move,Healingitem, -5, specialmove);
+            Pokemon Charizard = new Pokemon("Charizard", 100, 20, 70, 50, move, Healingitem, 54, specialmove);
+
            
-
-            Pikachu.makeMove(Charizard);
-            Charizard.makeMove(Pikachu);
-            
-            Charizard.showInfo();
             Pikachu.showInfo();
 
-            Charizard.showInfo();
-
-            Pikachu.Leczenie(Pikachu);
-            Charizard.Leczenie(Charizard);
-
-            Console.WriteLine();
-
             Console.ReadKey();
-
-           
 
         }
     }

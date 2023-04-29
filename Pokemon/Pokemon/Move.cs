@@ -25,11 +25,26 @@ namespace Pokemon
             target.healthPoints -= dmg;
             
         }
-        public void specjalnyAtak(Pokemon source, Pokemon target)
+        
+    }
+    public class SpecialAttackMove : Move
+    {
+        public override void execute(Pokemon source, Pokemon target)
         {
-            
+            throw new NotImplementedException();
+        }
+        protected double SpecialcalculateDmg(Pokemon You, Pokemon Enemy)
+        {
+            return (((((2 * 100 * 1) / 5 + 2) * 100 * You.attack / Enemy.defense) / 50)+ You.specialatack_/5);
+        }
+        public void Specialexecute(Pokemon source, Pokemon target)
+        {
+            double dmg = this.SpecialcalculateDmg(source, target);
+            target.healthPoints -= dmg;
+
         }
     }
+
 
 }
 

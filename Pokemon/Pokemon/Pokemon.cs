@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Pokemon
 {
@@ -17,13 +18,32 @@ namespace Pokemon
         public double defense;
         public double speed;
         public double damage;
+        public double specialatack_;
         public Move move;
         public Item item;
+        public SpecialAttackMove specialmove;
         
+       
+        
+
         Type type;
+        public double specialatak
+        {
+            set
+            {
+                if (value > 25 && value < 0)
+                {
+                    throw new Exception("Value is either too low or too high!");
+                }
+                this.specialatack_ = value;
+            }
+            get
+            {
+                return this.specialatack_;
+            }
+        }
 
-
-        public Pokemon(string name, double hp, double attack, double defense, double speed, Move move, Item item)
+        public Pokemon(string name, double hp, double attack, double defense, double speed, Move move, Item item,double specialatac_, SpecialAttackMove specialmove)
         {
             this.name = name;
             this.healthPoints = hp;
@@ -32,10 +52,13 @@ namespace Pokemon
             this.speed = speed;
             this.move = move;
             this.item = item;
+            this.specialatack_ = specialatac_;
+            this.specialmove = specialmove;
             
-
+            
         }
 
+        
         public void showInfo()
         {
             Console.WriteLine("--- Information ---");
@@ -52,11 +75,18 @@ namespace Pokemon
         {
             if (target == null) return;
             this.move.execute(this, target);
+            Console.WriteLine("ATAK" + "\n");
         }
 
         public void Leczenie(Pokemon pokemon)
         {
             this.item.Leczenie(pokemon);
+        }
+        public void makeSpecialMove(Pokemon target)
+        {
+            if (target == null) return;
+            this.specialmove.Specialexecute(this, target);
+
         }
     }
 }
