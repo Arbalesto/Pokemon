@@ -18,9 +18,9 @@ namespace Pokemon
             SpecialAttackMove specialmove = new SpecialAttackMove();
             BuffingItem buffingItem = new BuffingItem();
 
-            Pokemon Pikachu = new Pokemon("Pikachu", 100, 20, 50, 100, move,Healingitem, 25, specialmove, buffingItem);
+            Pokemon Pikachu = new Pokemon("Pikachu", 100, 20, 50, 2, move,Healingitem, 25, specialmove, buffingItem);
         
-            Pokemon Charizard = new Pokemon("Charizard", 100, 20, 70, 50, move, Healingitem, 25, specialmove, buffingItem);
+            Pokemon Charizard = new Pokemon("Charizard", 100, 20, 70, 1, move, Healingitem, 25, specialmove, buffingItem);
 
 
 
@@ -29,7 +29,6 @@ namespace Pokemon
                 if (Pikachu.isTurn(Pikachu, Charizard))
                 {
                     Pikachu.YourAction(Pikachu, Charizard);
-
                     Charizard.EnemyAction(Charizard, Pikachu);
                 }
                 else

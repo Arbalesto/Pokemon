@@ -31,7 +31,6 @@ namespace Pokemon
             Me.attack += 5;
             Me.specialAtak += 5;
             Me.damage += 5;
-            Me.speed += 5;
             Me.defense += 5;
         }
     }

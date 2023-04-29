@@ -79,8 +79,8 @@ namespace Pokemon
 
         public void makeMove(Pokemon target)
         {
-            if (target == null) return;
             move.execute(this, target);
+            Console.WriteLine("Zwykly Atak" +"\n");
             target.showInfo();
         }
 
@@ -91,7 +91,7 @@ namespace Pokemon
         }
         public void makeSpecialMove(Pokemon target)
         {
-            if (target == null) return;
+            Console.WriteLine("Specjalny atak" +"\n");
             specialmove.Specialexecute(this, target);
             target.showInfo();
 
@@ -99,7 +99,7 @@ namespace Pokemon
         public void buffingMove(Pokemon target)
         {
             buff.Buff(target);
-            Console.WriteLine("{0} Uzyll itemu buffujacego! Obecne Staty -", target.name);
+            Console.WriteLine("{0} Uzyll itemu buffujacego! Obecne Staty: "+"\n", target.name );
             target.showInfo();
         }
         public bool isTurn(Pokemon A, Pokemon B)
@@ -109,7 +109,7 @@ namespace Pokemon
         }
         public void YourAction(Pokemon A, Pokemon B)
         {
-            Console.WriteLine("Choose your action 1-Attack | 2-Special Atack | 3 - Heal | 4- Buff | 5-Run Away");
+            Console.Write("Choose your action 1-Attack | 2-Special Atack | 3 - Heal | 4- Buff | 5-Run Away: "+"\n");
             int choice = int.Parse(Console.ReadLine());
 
             
