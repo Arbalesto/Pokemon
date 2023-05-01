@@ -8,11 +8,18 @@ namespace FightGame
 {
     internal class Program
     {
+        
         static void Main(string[] args)
         {
-            Character Jasiu = new Character("Jasiu", 50, 50, 100);
+            Attack atak = new Attack();
+            Character Jasiu = new Character("Jasiu", 50, 50, 100, atak);
+            Character BOMBA = new Character("BOMBA", 50, 1, 100, atak);
+            Jasiu.showInfo();
+            Jasiu.setAttack(Jasiu,BOMBA);
+            BOMBA.showInfo();
             Jasiu.showInfo();
             Console.ReadKey();
+
             
         }
     }
